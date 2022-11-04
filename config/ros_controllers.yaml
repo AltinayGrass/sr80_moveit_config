@@ -38,8 +38,8 @@ manipulator_controller:
       d: 1
       i: 1
       i_clamp: 1
-vel_controller:
-  type: velocity_controllers/JointTrajectoryController
+pos_controller:
+  type: position_controllers/JointTrajectoryController
   joints:
     - J1
     - J2
@@ -78,8 +78,8 @@ vel_controller:
       d: 1
       i: 1
       i_clamp: 1
-pos_controller:
-  type: position_controllers/JointTrajectoryController
+vel_controller:
+  type: velocity_controllers/JointTrajectoryController
   joints:
     - J1
     - J2

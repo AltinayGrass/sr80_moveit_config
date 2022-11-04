@@ -1,0 +1,340 @@
+<?xml version="1.0" ?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="SR80">
+    <link name="L1">
+        <visual name="Link1_1">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link1_1.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="black" />
+        </visual>
+        <visual name="Link1_2">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link1_2.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision name="Link1_1">
+            <origin xyz="0.04186 0.04316 -0.12385" rpy="0 0 0" />
+            <geometry>
+                <box size="0.58774 0.52632 0.5948" />
+            </geometry>
+        </collision>
+        <collision name="Link1_2">
+            <origin xyz="0.0465 -0.01253 -0.07119" rpy="0 0 0" />
+            <geometry>
+                <box size="0.59701 0.47495 0.51213" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="L2">
+        <visual name="Link2_1">
+            <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link2_1.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <visual name="Link2_2">
+            <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link2_2.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="black" />
+        </visual>
+        <collision name="Link2_1">
+            <origin xyz="0.43725 0 0.23727" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <box size="0.32499 0.16505 1.1995" />
+            </geometry>
+        </collision>
+        <collision name="Link2_2">
+            <origin xyz="0.905 0.00031 0.03705" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <box size="0.28739 0.3599 0.288" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="L3">
+        <visual name="Link3_1">
+            <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link3_1.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <visual name="Link3_2">
+            <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link3_2.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="black" />
+        </visual>
+        <collision name="Link3_1">
+            <origin xyz="0.07425 -0.24338 0.02774" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <box size="0.83872 0.29353 0.5005" />
+            </geometry>
+        </collision>
+        <collision name="Link3_2">
+            <origin xyz="0.206 0.02281 0" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <box size="0.301 0.19 0.19" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="L4">
+        <visual name="Link4_1">
+            <origin xyz="0 0 0" rpy="3.14159 -1.5708 0" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link4_1.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <visual name="Link4_2">
+            <origin xyz="0 0 0" rpy="3.14159 -1.5708 0" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link4_2.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="black" />
+        </visual>
+        <collision name="Link4_1">
+            <origin xyz="0 -0.05552 0.688" rpy="3.14159 -1.5708 0" />
+            <geometry>
+                <box size="0.88401 0.29316 0.21988" />
+            </geometry>
+        </collision>
+        <collision name="Link4_2">
+            <origin xyz="0 0.00411 0.93202" rpy="3.14159 -1.5708 0" />
+            <geometry>
+                <box size="0.36419 0.27337 0.19" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="L5">
+        <visual name="Link5">
+            <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Link5.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision name="Link5">
+            <origin xyz="0 -0.07093 0.00343" rpy="-1.5708 0 -1.5708" />
+            <geometry>
+                <box size="0.30715 0.15674 0.15001" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="base_link">
+        <visual name="Base">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Base.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision name="Base">
+            <origin xyz="-0.04926 0 0.12718" rpy="0 0 0" />
+            <geometry>
+                <box size="0.75852 0.62187 0.25435" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="flange">
+        <visual name="Flange">
+            <origin xyz="0 0 0" rpy="3.14159 0 0" />
+            <geometry>
+                <mesh filename="package://sr80_description/meshes/dae/Flange.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+            <material name="black" />
+        </visual>
+        <collision name="Flange">
+            <origin xyz="0 0 -0.01015" rpy="3.14159 0 0" />
+            <geometry>
+                <box size="0.115 0.11383 0.0307" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <!-- ROS-Industrial 'base' frame: base_link to robot world coordinate sytem transform -->
+    <link name="base0" />
+    <joint name="base_link-base" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base_link" />
+        <child link="base0" />
+    </joint>
+    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
+    <link name="tool0" />
+    <joint name="flange-tool0" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="flange" />
+        <child link="tool0" />
+    </joint>
+    <link name="world" />
+    <joint name="world-base_link-fixed" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+    <!-- TCP -->
+    <joint name="fixed_joint_tcp" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <!-- tcp offset from last link -->
+        <parent link="flange" />
+        <child link="tcp" />
+    </joint>
+    <link name="tcp" />
+    <joint name="J1" type="revolute">
+        <origin xyz="0 0 0.63" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="L1" />
+        <axis xyz="0 0 1.0" />
+        <limit lower="-3.14159" upper="3.14159" effort="2.76" velocity="3.39" />
+    </joint>
+    <joint name="J2" type="revolute">
+        <origin xyz="0.175 0 0" rpy="1.5708 -1.5708 0" />
+        <parent link="L1" />
+        <child link="L2" />
+        <axis xyz="0 0 1.0" />
+        <limit lower="-2.268928028" upper="1.047197551" effort="2.76" velocity="3.39" />
+    </joint>
+    <joint name="J3" type="revolute">
+        <origin xyz="0.905 0 0" rpy="0 0 0" />
+        <parent link="L2" />
+        <child link="L3" />
+        <axis xyz="0 0 1.0" />
+        <limit lower="-1.396263402" upper="2.879793266" effort="2.76" velocity="3.39" />
+    </joint>
+    <joint name="J4" type="revolute">
+        <origin xyz="0.206 0 0" rpy="1.5708 0 0" />
+        <parent link="L3" />
+        <child link="L4" />
+        <axis xyz="0 0 1.0" />
+        <limit lower="-3.14159" upper="3.14159" effort="2.76" velocity="3.39" />
+    </joint>
+    <joint name="J5" type="revolute">
+        <origin xyz="0 0 1.02" rpy="-1.5708 0 0" />
+        <parent link="L4" />
+        <child link="L5" />
+        <axis xyz="0 0 1.0" />
+        <limit lower="-2.181661565" upper="2.181661565" effort="2.76" velocity="3.39" />
+    </joint>
+    <joint name="J6" type="revolute">
+        <origin xyz="0 -0.25 0" rpy="1.5708 0 0" />
+        <parent link="L5" />
+        <child link="flange" />
+        <axis xyz="0 0 1.0" />
+        <limit lower="-6.108652382" upper="6.108652382" effort="2.76" velocity="3.39" />
+    </joint>
+    <material name="black">
+        <color rgba="0.007 0.007 0.007 1.0" />
+    </material>
+    <material name="red">
+        <color rgba="0.49693 0.01298 0.00518 1.0" />
+    </material>
+    <material name="white">
+        <color rgba="0.87962 0.8388 0.75294 1.0" />
+    </material>
+    <transmission name="trans_J1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="J1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="J1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_J2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="J2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="J2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_J3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="J3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="J3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_J4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="J4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="J4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_J5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="J5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="J5_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_J6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="J6">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="J6_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+

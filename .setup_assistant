@@ -1,27 +1,11 @@
 moveit_setup_assistant_config:
-  urdf:
+  URDF:
     package: sr80_description
     relative_path: urdf/SR80.urdf
-  srdf:
+    xacro_args: ""
+  SRDF:
     relative_path: config/SR80.srdf
-  package_settings:
+  CONFIG:
     author_name: aGan
     author_email: agan.simsek@altinay.com
-    generated_timestamp: 1667554947
-  control_xacro:
-    command:
-      - position
-      - velocity
-    state:
-      - position
-      - velocity
-  modified_urdf:
-    xacros:
-      - control_xacro
-  control_xacro:
-    command:
-      - position
-      - velocity
-    state:
-      - position
-      - velocity
+    generated_timestamp: 1667591024

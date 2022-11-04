@@ -7,16 +7,14 @@ moveit_setup_assistant_config:
   package_settings:
     author_name: aGan
     author_email: agan.simsek@altinay.com
-    generated_timestamp: 1667552657
+    generated_timestamp: 1667554947
   control_xacro:
     command:
       - position
       - velocity
-      - effort
     state:
       - position
       - velocity
-      - effort
   modified_urdf:
     xacros:
       - control_xacro
@@ -24,8 +22,6 @@ moveit_setup_assistant_config:
     command:
       - position
       - velocity
-      - effort
     state:
       - position
       - velocity
-      - effort

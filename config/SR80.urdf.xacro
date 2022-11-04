@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="SR80">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import SR80 urdf file -->
+    <xacro:include filename="$(find sr80_description)/urdf/SR80.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="SR80.ros2_control.xacro" />
+
+
+    <xacro:SR80_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

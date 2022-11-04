@@ -107,7 +107,7 @@ def generate_launch_description():
     sr80_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["sr80_arm_controller", "-c", "/controller_manager"],
+        arguments=["manipulator_controller", "-c", "/controller_manager"],
     )
 
    # Static TF
@@ -151,12 +151,12 @@ def generate_launch_description():
         [
             rviz_node,
             move_group_node,
-            ros2_control_node,
             static_tf_node,
             robot_state_publisher,
-            servo_node,
             joint_state_broadcaster_spawner,
             sr80_arm_controller_spawner,
+            ros2_control_node,
+            servo_node,
             #container,
         ]
     )

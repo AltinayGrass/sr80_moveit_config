@@ -207,11 +207,11 @@
         <parent link="flange" />
         <child link="tool0" />
     </joint>
-    <link name="world" />
+    <!--link name="world" />
     <joint name="world-base_link-fixed" type="fixed">
         <parent link="world" />
         <child link="base_link" />
-    </joint>
+    </joint-->
     <!-- TCP -->
     <joint name="fixed_joint_tcp" type="fixed">
         <origin rpy="0 0 0" xyz="0 0 0" />
@@ -332,7 +332,7 @@
         </actuator>
     </transmission>
     <gazebo>
-        <plugin name="gazebo_ros_control">
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
             <robotNamespace>/</robotNamespace>
         </plugin>
     </gazebo>

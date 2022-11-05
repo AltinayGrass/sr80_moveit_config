@@ -5,7 +5,9 @@
   <rosparam file="$(find sr80_moveit_config)/config/ros_controllers.yaml" command="load"/>
 
   <!-- Load the controllers -->
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args="manipulator_controller pos_controller vel_controller "/>
+  <node name="controller_spawner" pkg="controller_manager" type="controller_manager" respawn="false"
+    output="screen" args="spawn pos_controller"/>
+ <!-- load other controllers for servo control -->
+  <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
 
 </launch>

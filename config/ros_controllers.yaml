@@ -78,6 +78,15 @@ pos_controller:
       d: 1
       i: 1
       i_clamp: 1
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      J1: {trajectory: 0.1, goal: 0.1}
+      J2: {trajectory: 0.1, goal: 0.1}
+      J3: {trajectory: 0.1, goal: 0.1}
+      J4: {trajectory: 0.1, goal: 0.1}
+      J5: {trajectory: 0.1, goal: 0.1}
+      J6: {trajectory: 0.1, goal: 0.1}
 vel_controller:
   type: velocity_controllers/JointTrajectoryController
   joints:

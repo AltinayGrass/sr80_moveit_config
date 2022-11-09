@@ -226,6 +226,7 @@
         <child link="L1" />
         <axis xyz="0 0 1.0" />
         <limit lower="-3.14159" upper="3.14159" effort="2.76" velocity="3.39" />
+        <dynamics damping="1.0" />
     </joint>
     <joint name="J2" type="revolute">
         <origin xyz="0.175 0 0" rpy="1.5708 -1.5708 0" />
@@ -233,6 +234,7 @@
         <child link="L2" />
         <axis xyz="0 0 1.0" />
         <limit lower="-2.268928028" upper="1.047197551" effort="2.76" velocity="3.39" />
+        <dynamics damping="1.0" />
     </joint>
     <joint name="J3" type="revolute">
         <origin xyz="0.905 0 0" rpy="0 0 0" />
@@ -240,6 +242,7 @@
         <child link="L3" />
         <axis xyz="0 0 1.0" />
         <limit lower="-1.396263402" upper="2.879793266" effort="2.76" velocity="3.39" />
+        <dynamics damping="1.0" />
     </joint>
     <joint name="J4" type="revolute">
         <origin xyz="0.206 0 0" rpy="1.5708 0 0" />
@@ -247,6 +250,7 @@
         <child link="L4" />
         <axis xyz="0 0 1.0" />
         <limit lower="-3.14159" upper="3.14159" effort="2.76" velocity="3.39" />
+        <dynamics damping="1.0" />
     </joint>
     <joint name="J5" type="revolute">
         <origin xyz="0 0 1.02" rpy="-1.5708 0 0" />
@@ -254,6 +258,7 @@
         <child link="L5" />
         <axis xyz="0 0 1.0" />
         <limit lower="-2.181661565" upper="2.181661565" effort="2.76" velocity="3.39" />
+        <dynamics damping="1.0" />
     </joint>
     <joint name="J6" type="revolute">
         <origin xyz="0 -0.25 0" rpy="1.5708 0 0" />
@@ -261,6 +266,7 @@
         <child link="flange" />
         <axis xyz="0 0 1.0" />
         <limit lower="-6.108652382" upper="6.108652382" effort="2.76" velocity="3.39" />
+        <dynamics damping="1.0" />
     </joint>
     <material name="black">
         <color rgba="0.007 0.007 0.007 1.0" />

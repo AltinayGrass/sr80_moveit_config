@@ -22,10 +22,16 @@
   <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot $(arg unpause) $(arg world_pose) $(arg initial_joint_positions)"
     respawn="false" output="screen" />
 
+  
+  <!-- set pid parameters -->
+  <!--rosparam command="load" file="$(find sr80_moveit_config_new)/config/gazebo_pid_gains.yaml" /-->
+
   <!-- Load joint controller parameters for Gazebo -->
   <rosparam file="$(find sr80_moveit_config)/config/gazebo_controllers.yaml" />
+  
   <!-- Spawn Gazebo ROS controllers -->
   <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller" />
+  
   <!-- Load ROS controllers -->
   <include file="$(dirname)/ros_controllers.launch"/>
 

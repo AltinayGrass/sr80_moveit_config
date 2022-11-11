@@ -29,7 +29,7 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.1" />
+            <mass value="0.001" />
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
         </inertial>
@@ -62,7 +62,7 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.1" />
+            <mass value="0.001" />
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
         </inertial>
@@ -95,7 +95,7 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.1" />
+            <mass value="0.001" />
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
         </inertial>
@@ -128,7 +128,7 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.1" />
+            <mass value="0.001" />
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
         </inertial>
@@ -148,7 +148,7 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.1" />
+            <mass value="0.001" />
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
         </inertial>
@@ -188,38 +188,11 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.1" />
+            <mass value="0.001" />
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
         </inertial>
     </link>
-    <!-- ROS-Industrial 'base' frame: base_link to robot world coordinate sytem transform -->
-    <link name="base0" />
-    <joint name="base_link-base" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0" />
-        <parent link="base_link" />
-        <child link="base0" />
-    </joint>
-    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
-    <link name="tool0" />
-    <joint name="flange-tool0" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0" />
-        <parent link="flange" />
-        <child link="tool0" />
-    </joint>
-    <link name="world" />
-    <joint name="world-base_link-fixed" type="fixed">
-        <parent link="world" />
-        <child link="base_link" />
-    </joint>
-    <!-- TCP -->
-    <joint name="fixed_joint_tcp" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0" />
-        <!-- tcp offset from last link -->
-        <parent link="flange" />
-        <child link="tcp" />
-    </joint>
-    <link name="tcp" />
     <joint name="J1" type="revolute">
         <origin xyz="0 0 0.63" rpy="0 0 0" />
         <parent link="base_link" />
@@ -267,6 +240,39 @@
         <axis xyz="0 0 1.0" />
         <limit lower="-6.108652382" upper="6.108652382" effort="2.76" velocity="3.39" />
         <dynamics damping="1.0" />
+    </joint>
+    <!-- ROS-Industrial 'base' frame: base_link to robot world coordinate sytem transform -->
+    <link name="base0" />
+    <joint name="base_link-base" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base_link" />
+        <child link="base0" />
+        <dynamics damping="1.0" />
+    </joint>
+    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
+    <link name="tool0" />
+    <joint name="flange-tool0" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="flange" />
+        <child link="tool0" />
+        <dynamics damping="1.0" />
+    </joint>
+    
+    <link name="world" />
+    <joint name="world-base_link-fixed" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <dynamics damping="1.0" />
+    </joint>
+    
+    <!-- TCP -->
+    <link name="tcp" />
+    <joint name="fixed_joint_tcp" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <!-- tcp offset from last link -->
+        <parent link="flange" />
+        <child link="tcp" />
     </joint>
     <material name="black">
         <color rgba="0.007 0.007 0.007 1.0" />

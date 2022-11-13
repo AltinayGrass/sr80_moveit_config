@@ -1,5 +1,6 @@
 <launch>
-
+  
+  <!-- publish tf for calculating cartesian coordinate at web side -->
   <node name="tf2_web_republisher" pkg="tf2_web_republisher" type="tf2_web_republisher" output="screen"/>
 
   <!-- pilz motion programing needs speed override -->

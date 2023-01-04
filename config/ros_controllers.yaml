@@ -127,6 +127,75 @@ vel_controller:
       d: 1
       i: 1
       i_clamp: 1
+SR80:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  pos_vel_controller:
+    type: pos_vel_controllers/JointTrajectoryController
+    joints:
+      - J1
+      - J2
+      - J3
+      - J4
+      - J5
+      - J6
+    gains:
+      J1:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      J2:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      J3:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      J4:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      J5:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      J6:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+    constraints:
+  #      goal_time: 10.0                  # Override default
+      stopped_velocity_tolerance: 0
+      J1:
+        goal: 3.14 #0.05 # 3 degree
+        trajectory: 3.14 #0.1 # 6 degree
+      J2:
+        goal: 3.14 #0.05 # 3 degree
+        trajectory: 3.14 #0.1 # 6 degree
+      J3:
+        goal: 3.14 #0.05 # 3 degree
+        trajectory: 3.14 #0.1 # 6 degree
+      J4:
+        goal: 3.14 #0.2 # 12 degree
+        trajectory: 3.14 #0.25 # 15 degree
+      J5:
+        goal: 3.14 #0.1 # 6 degree
+        trajectory: 3.14 #0.1 # 6 degree
+      J6:
+        goal: 3.14 #0.1 # 6 degree
+        trajectory: 3.14 #0.1 # 6 degree
+    state_publish_rate:  50            # Override default
+    action_monitor_rate: 30            # Override default
+    stop_trajectory_duration: 0        # Override default
+
 joint_group_position_controller:
   type: position_controllers/JointGroupPositionController
   joints:

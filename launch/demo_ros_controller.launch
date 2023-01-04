@@ -1,0 +1,22 @@
+<launch>
+
+  <!-- specify the planning pipeline -->
+  <arg name="pipeline" default="ompl" />
+
+  <param name="robot_description" textfile="$(find sr80_description)/urdf/SR80.urdf"/>
+
+  <include file="$(dirname)/ros_controllers.launch">
+      <arg name="hw" value="real"/>
+  </include>
+
+<!-- Given the published joint states, publish tf for the robot links -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" args="-publish_frequency 50.0"/>
+ 
+  <include file="$(dirname)/demo.launch" pass_all_args="true">
+    <!-- robot description is loaded by gazebo.launch, to enable Gazebo features -->
+    <arg name="load_robot_description" value="false" />
+    <arg name="moveit_controller_manager" value="ros_control" />
+  </include>
+  
+
+</launch>

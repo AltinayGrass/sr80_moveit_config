@@ -1,13 +1,25 @@
 <?xml version="1.0"?>
 <launch>
+  <!-- specify fake or real hardware -->
+  <arg name="hw" default="fake" />
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find sr80_moveit_config)/config/ros_controllers.yaml" command="load"/>
-
+  
+  <group if="$(eval arg('hw') == 'fake')"> 
   <!-- Load the controllers -->
-  <node name="controller_spawner" pkg="controller_manager" type="controller_manager" respawn="false"
-    output="screen" args="spawn pos_controller"/>
- <!-- load other controllers for servo control -->
-  <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
+    <node name="controller_spawner" pkg="controller_manager" type="controller_manager" respawn="false"
+      output="screen" args="spawn pos_controller"/>
+    <!-- load other controllers for servo control -->
+    <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
+  </group>
+
+   <group if="$(eval arg('hw') == 'real')"> 
+    <!-- Load the controllers -->
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="SR80/joint_state_controller SR80/pos_vel_controller"/>
+          
+      <include file="$(find sr80_hardware_interface)/launch/sr80_hw_launch.launch"/>
+    </group>
 
 </launch>

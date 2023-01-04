@@ -131,8 +131,15 @@ SR80:
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50
-  pos_vel_controller:
-    type: pos_vel_controllers/JointTrajectoryController
+    joints:
+      - J1
+      - J2
+      - J3
+      - J4
+      - J5
+      - J6
+  pos_vel_acc_controller:
+    type: pos_vel_acc_controllers/JointTrajectoryController
     joints:
       - J1
       - J2

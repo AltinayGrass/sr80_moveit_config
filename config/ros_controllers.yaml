@@ -130,7 +130,7 @@ vel_controller:
 SR80:
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 50
+    publish_rate: 100
     joints:
       - J1
       - J2
@@ -199,7 +199,7 @@ SR80:
       J6:
         goal: 3.14 #0.1 # 6 degree
         trajectory: 3.14 #0.1 # 6 degree
-    state_publish_rate:  50            # Override default
+    state_publish_rate:  100            # Override default
     action_monitor_rate: 30            # Override default
     stop_trajectory_duration: 0        # Override default
 

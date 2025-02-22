@@ -1,6 +1,8 @@
 import os
 import yaml
 from launch import LaunchDescription
+from launch import substitutions
+from launch import actions
 from launch_ros.actions import Node
 #from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
@@ -128,7 +130,7 @@ def generate_launch_description():
         parameters=[
             moveit_config.robot_description,
             {
-                "publish_frequency": 15.0,
+                "publish_frequency": 100.0,
             },
         ]
     )
@@ -145,10 +147,32 @@ def generate_launch_description():
             moveit_config.robot_description_kinematics,
         ],
         output="screen",
-    )
+    )    
 
+    config_filepath = substitutions.LaunchConfiguration('config_filepath')
+    joy_config = substitutions.LaunchConfiguration('joy_config')
+    actions.DeclareLaunchArgument('joy_config', default_value='joyfox'),
+    actions.DeclareLaunchArgument('config_filepath', default_value=[
+            substitutions.TextSubstitution(text=os.path.join(
+                get_package_share_directory('sr80_moveit_config'), 'config', '')),
+            joy_config, substitutions.TextSubstitution(text='.config.yaml')]),
+    
+    teleop_twist_joy_node = Node (
+        package='teleop_twist_joy', 
+        executable='teleop_node',
+        parameters=[config_filepath],
+        remappings={(('/cmd_vel','/servo_node/delta_twist_cmds'))},
+        output="screen",
+    )
+    
     return LaunchDescription(
         [
+            actions.DeclareLaunchArgument('joy_config', default_value='joyfox'),
+            actions.DeclareLaunchArgument('config_filepath', default_value=[
+                substitutions.TextSubstitution(text=os.path.join(
+                get_package_share_directory('sr80_moveit_config'), 'config', '')),
+                joy_config, substitutions.TextSubstitution(text='.config.yaml')]),
+            
             rviz_node,
             move_group_node,
             static_tf_node,
@@ -157,6 +181,7 @@ def generate_launch_description():
             sr80_arm_controller_spawner,
             ros2_control_node,
             servo_node,
+            teleop_twist_joy_node,
             #container,
         ]
     )

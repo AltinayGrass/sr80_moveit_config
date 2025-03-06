@@ -109,7 +109,7 @@ def generate_launch_description():
     sr80_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["manipulator_controller", "-c", "/controller_manager"],
+        arguments=["arm_controller", "-c", "/controller_manager"],
     )
 
    # Static TF
@@ -136,15 +136,23 @@ def generate_launch_description():
     )
 
     # Launch a standalone Servo node.
-    # As opposed to a node component, this may be necessary (for example) if Servo is running on a different PC   
+    # As opposed to a node component, this may be necessary (for example) if Servo is running on a different PC 
+        # This sets the update rate and planning group name for the acceleration limiting filter.
+    
+    acceleration_filter_update_period = {"update_period": 0.034}
+    planning_group_name = {"planning_group_name": "arm"}
+      
     servo_node = Node(
         package="moveit_servo",
-        executable="servo_node_main",
+        executable="servo_node",
         parameters=[
             servo_params,
+            acceleration_filter_update_period,
+            planning_group_name,
             moveit_config.robot_description,
             moveit_config.robot_description_semantic,
             moveit_config.robot_description_kinematics,
+            moveit_config.joint_limits,
         ],
         output="screen",
     )    

@@ -21,4 +21,4 @@ teleop_twist_joy_node:
     enable_button: -1
     require_enable_button: false
     publish_stamped_twist: true
-    frame: 'base_link'
+    frame: 'flange'

@@ -6,8 +6,8 @@ moveit_setup_assistant_config:
     relative_path: config/SR80.srdf
   package_settings:
     author_name: aGan
-    author_email: agan.simsek@altinay.com
-    generated_timestamp: 1667554947
+    author_email: agan.simsek@gmail.com
+    generated_timestamp: 1741283555
   control_xacro:
     command:
       - position

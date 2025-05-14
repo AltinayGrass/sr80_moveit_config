@@ -1,24 +1,24 @@
 teleop_twist_joy_node:
   ros__parameters:
     axis_linear:
-      x: 1
-      y: 0
-      z: 3
+      x: 0 # 1
+      y: 1 # 0
+      z: 2 # 3
     scale_linear:
       x: 0.7
       y: 0.7
       z: 0.7
 
     axis_angular:
-      yaw: 5
-      pitch: 2
-      roll: 7
+      yaw: 5 # 5
+      pitch: 4 # 2
+      roll: 3 # 7
     scale_angular:
-      yaw: 0.4
-      pitch: 0.4
-      roll: 0.4
+      yaw: 0.7
+      pitch: 0.7
+      roll: 0.7
 
-    enable_button: -1
-    require_enable_button: false
+    enable_button: 0
+    require_enable_button: true
     publish_stamped_twist: true
-    frame: 'flange'
+    frame: 'tcp'

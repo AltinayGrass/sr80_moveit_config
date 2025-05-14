@@ -15,6 +15,7 @@ from moveit_configs_utils import MoveItConfigsBuilder
 #from launch.substitutions import Command
 
 
+
 def load_file(package_name, file_path):
     package_path = get_package_share_directory(package_name)
     absolute_file_path = os.path.join(package_path, file_path)
@@ -39,8 +40,21 @@ def load_yaml(package_name, file_path):
 
 def generate_launch_description():
     
-    moveit_config = MoveItConfigsBuilder("SR80", package_name="sr80_moveit_config").to_moveit_configs()
-    
+    # moveit_config = MoveItConfigsBuilder("SR80", package_name="sr80_moveit_config").to_moveit_configs()
+ 
+    joint_limits_file_path = 'config/joint_limits.yaml'
+    moveit_config = (
+    MoveItConfigsBuilder("SR80" , package_name="sr80_moveit_config")
+    .planning_scene_monitor(
+        publish_robot_description=True, publish_robot_description_semantic=True
+    )
+    .joint_limits(file_path=joint_limits_file_path)
+    .planning_pipelines(
+        pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"]
+    )
+    .to_moveit_configs()
+)
+
     #   .robot_description(file_path="config/SR80.urdf.xacro")
     #   .robot_description_semantic(file_path="config/SR80.srdf")
     #   .planning_pipelines(pipelines=["ompl", "chomp"])
@@ -106,6 +120,7 @@ def generate_launch_description():
         ],
     )
 
+
     sr80_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -131,8 +146,8 @@ def generate_launch_description():
             moveit_config.robot_description,
             {
                 "publish_frequency": 100.0,
-            },
-        ]
+            }
+        ],
     )
 
     # Launch a standalone Servo node.
@@ -173,6 +188,13 @@ def generate_launch_description():
         output="screen",
     )
     
+    spacenav_node = Node (
+        package='spacenav',
+        executable='spacenav_node',
+        remappings={(('/spacenav/joy','/joy'))},
+        output='screen',
+    )
+    
     return LaunchDescription(
         [
             actions.DeclareLaunchArgument('joy_config', default_value='joyfox'),
@@ -181,15 +203,17 @@ def generate_launch_description():
                 get_package_share_directory('sr80_moveit_config'), 'config', '')),
                 joy_config, substitutions.TextSubstitution(text='.config.yaml')]),
             
-            rviz_node,
-            move_group_node,
+        
             static_tf_node,
             robot_state_publisher,
+            ros2_control_node,
             joint_state_broadcaster_spawner,
             sr80_arm_controller_spawner,
-            ros2_control_node,
+            move_group_node,
             servo_node,
             teleop_twist_joy_node,
+            spacenav_node,
+            rviz_node,
             #container,
         ]
     )
